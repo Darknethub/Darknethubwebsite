@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DarkNet Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', monospace;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: #111;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    nav a:hover {
+      color: #000;
+      background: #fff;
+      border: 1px solid #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: #000;
+      border-bottom: 1px solid #fff;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 1rem;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Products Section */
+    .products {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .product {
+      background: #111;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      padding: 1.5rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: slideUp 0.8s ease forwards;
+      animation-delay: calc(0.2s * var(--i));
+    }
+
+    .product:nth-child(1) { --i: 1; }
+    .product:nth-child(2) { --i: 2; }
+
+    .product h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .product p {
+      color: #ccc;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .product .buy-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .product .buy-btn:hover {
+      background: #ccc;
+      transform: scale(1.05);
+    }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Contact Section */
+    .contact {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: #111;
+      border-top: 1px solid #fff;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    .contact a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      color: #ccc;
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>DarkNet Hub</h1>
+    <p>Made by Jake.</p>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products">
+    <div class="product">
+      <h3>Token Grabber</h3>
+      <p>Extracts authentication tokens from applications like Discord. Requires basic setup.</p>
+      <a href="#" class="buy-btn">Get It ($50)</a>
+    </div>
+    <div class="product">
+      <h3>IP Pinger/DDOSer</h3>
+      <p>Tool for pinging or overwhelming an IP address with traffic. Proxy support included.</p>
+      <a href="#" class="buy-btn">Get It ($80)</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:darknethub@outlook.com">darknethub@outlook.com</a></p>
+  </section>
+
+  <script>
+    // Smooth scrolling for navigation
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Trigger animations on scroll
+    const elements = document.querySelectorAll('.product, .contact');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

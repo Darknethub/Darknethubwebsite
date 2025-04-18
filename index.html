@@ -1,249 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DarkNet Hub</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Courier New', monospace;
-    }
-
-    body {
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* Navigation Bar */
-    nav {
-      background: #111;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid #fff;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.2rem;
-      padding: 0.5rem 1rem;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-    }
-
-    nav a:hover {
-      color: #000;
-      background: #fff;
-      border: 1px solid #fff;
-    }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 4rem 1rem;
-      background: #000;
-      border-bottom: 1px solid #fff;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-top: 1rem;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Products Section */
-    .products {
-      padding: 3rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .product {
-      background: #111;
-      border: 1px solid #fff;
-      border-radius: 5px;
-      padding: 1.5rem;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: slideUp 0.8s ease forwards;
-      animation-delay: calc(0.2s * var(--i));
-    }
-
-    .product:nth-child(1) { --i: 1; }
-    .product:nth-child(2) { --i: 2; }
-
-    .product h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .product p {
-      color: #ccc;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .product form {
-      margin-top: 1rem;
-    }
-
-    @keyframes slideUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Contact Section */
-    .contact {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: #111;
-      border-top: 1px solid #fff;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    .contact h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact p {
-      font-size: 1.1rem;
-      color: #ccc;
-    }
-
-    .contact a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .contact a:hover {
-      color: #ccc;
-    }
-
-    /* Smooth Scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .products {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <h1>DarkNet Hub</h1>
-    <p>Made by Jake.</p>
-  </section>
-
-  <!-- Products Section -->
-  <section id="products" class="products">
-    <div class="product">
-      <h3>Token Grabber</h3>
-      <p>Extracts authentication tokens from applications like Discord. Requires basic setup.</p>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="jacksonfischa@gmail.com">
-        <input type="hidden" name="item_name" value="Token Grabber">
-        <input type="hidden" name="amount" value="50">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
-      </form>
-    </div>
-    <div class="product">
-      <h3>IP Pinger/DDOSer</h3>
-      <p>Tool for pinging or overwhelming an IP address with traffic. Proxy support included.</p>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="jacksonfischa@gmail.com">
-        <input type="hidden" name="item_name" value="IP Pinger/DDOSer">
-        <input type="hidden" name="amount" value="80">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
-      </form>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:darknethub@outlook.com">darknethub@outlook.com</a></p>
-  </section>
-
-  <script>
-    // Smooth scrolling for navigation
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Trigger animations on scroll
-    const elements = document.querySelectorAll('.product, .contact');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberJunk Emporium - Totally L33T Gear</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
         }
-      });
-    }, { threshold: 0.1 });
+        .product-card {
+            background: #1a1a1a;
+            border: 2px solid #00ff00;
+            transition: transform 0.2s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .chat-message {
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center p-4">
+    <header class="text-center mb-8">
+        <h1 class="text-4xl md:text-6xl font-bold text-[#00ff00] drop-shadow-[0_0_10px_#00ff00]">
+            CyberJunk Emporium
+        </h1>
+        <p class="text-lg md:text-xl text-[#00cc00] mt-2">
+            Your #1 Stop for L33T, Totally Not Sketchy Gear! 😎
+        </p>
+    </header>
 
-    elements.forEach(el => observer.observe(el));
-  </script>
+    <main class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+        <div class="product-card rounded-lg p-4 flex flex-col items-center">
+            <img src="https://source.unsplash.com/300x200/?circuit" alt="Quantum Meme Encryptor" class="rounded mb-4">
+            <h2 class="text-xl font-bold text-[#00ff00]">Quantum Meme Encryptor</h2>
+            <p class="text-sm text-[#00cc00] mb-4 text-center">
+                Hide your memes in 128-bit LOLcode! Guaranteed to confuse normies. Only 420 CryptoCoins!
+            </p>
+            <a href="hacked.html" class="bg-[#00ff00] hover:bg-[#00cc00] text-black font-bold py-2 px-4 rounded">
+                Buy Now
+            </a>
+        </div>
+        <div class="product-card rounded-lg p-4 flex flex-col items-center">
+            <img src="https://source.unsplash.com/300x200/?code" alt="GiggleByte Virus Spray" class="rounded mb-4">
+            <h2 class="text-xl font-bold text-[#00ff00]">GiggleByte Virus Spray</h2>
+            <p class="text-sm text-[#00cc00] mb-4 text-center">
+                Spray your PC with virtual giggles! 100% safe (we think). Just 69 CryptoCoins!
+            </p>
+            <a href="hacked.html" class="bg-[#00ff00] hover:bg-[#00cc00] text-black font-bold py-2 px-4 rounded">
+                Buy Now
+            </a>
+        </div>
+        <div class="product-card rounded-lg p-4 flex flex-col items-center">
+            <img src="https://source.unsplash.com/300x200/?hacker" alt="Pixelated Ninja Cloak" class="rounded mb-4">
+            <h2 class="text-xl font-bold text-[#00ff00]">Pixelated Ninja Cloak</h2>
+            <p class="text-sm text-[#00cc00] mb-4 text-center">
+                Go invisible on 8-bit forums! No one will know you’re AFK. 1337 CryptoCoins!
+            </p>
+            <a href="hacked.html" class="bg-[#00ff00] hover:bg-[#00cc00] text-black font-bold py-2 px-4 rounded">
+                Buy Now
+            </a>
+        </div>
+    </main>
+
+    <footer class="mt-12 w-full max-w-6xl">
+        <h3 class="text-xl font-bold text-[#00ff00] mb-2">Hacker Chat 💾</h3>
+        <div id="chatBox" class="bg-[#1a1a1a] border-2 border-[#00ff00] p-4 rounded-lg h-32 overflow-y-auto text-sm text-[#00cc00]">
+            <p class="chat-message">> L33T_HAXOR: Yo, this gear is fire! 🔥</p>
+        </div>
+    </footer>
+
+    <script>
+        const chatMessages = [
+            "> C0DE_N1NJA: Anyone got the Pixelated Cloak yet? OP!",
+            "> M3M3_L0RD: Just bought the Virus Spray, lol so fun!",
+            "> SKR1PT_K1DD13: Is this site even real? 😂",
+            "> B1NARY_B0SS: Quantum Encryptor FTW, no normies allowed!"
+        ];
+
+        const chatBox = document.getElementById('chatBox');
+        let chatIndex = 0;
+
+        function addChatMessage() {
+            chatIndex = (chatIndex + 1) % chatMessages.length;
+            const newMessage = document.createElement('p');
+            newMessage.className = 'chat-message';
+            newMessage.textContent = chatMessages[chatIndex];
+            chatBox.appendChild(newMessage);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            while (chatBox.children.length > 5) {
+                chatBox.removeChild(chatBox.firstChild);
+            }
+        }
+
+        setInterval(addChatMessage, 5000);
+    </script>
 </body>
 </html>
